@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!-- ============================================================================
+     index.html  —  ESTRUCTURA Y CONTENIDO DE TEXTO DEL SITIO
+     ----------------------------------------------------------------------------
+     ARCHIVOS DEL PROYECTO:
+       index.html  → (este archivo) estructura y textos fijos.
+       styles.css  → colores, fuentes, tamaños y diseño.
+       script.js   → servicios y proyectos (datos), menú, tema, formulario…
+       assets/     → carpeta para tus imágenes (images) e iconos (icons).
+
+     CÓMO ABRIR EL SITIO: haz doble clic en este archivo (index.html).
+
+     ÍNDICE DE SECCIONES (busca el texto "SECCIÓN" con Ctrl+F):
+       · CABECERA (<head>)         · SECCIÓN 4: Proyectos (se genera en script.js)
+       · MENÚ DE NAVEGACIÓN        · SECCIÓN 5: Sustentabilidad
+       · SECCIÓN 1: Portada        · SECCIÓN 6: Contacto y formulario
+       · SECCIÓN 2: Conócenos      · BANNER FINAL
+       · SECCIÓN 3: Servicios      · PIE DE PÁGINA
+         (se genera en script.js)
+
+     ► CÓMO FUNCIONAN LOS ENLACES (href):
+       <a href="#about">  salta a la sección que tenga  id="about".
+       El símbolo # significa "ir a un elemento de ESTA misma página" y lo que
+       sigue debe coincidir EXACTAMENTE con el id de la sección destino.
+       Otros tipos de enlace:
+         Sitio externo : <a href="https://www.ejemplo.com" target="_blank" rel="noopener">
+         Correo        : <a href="mailto:correo@ejemplo.com">
+         Teléfono      : <a href="tel:+522220000000">
+     ============================================================================ -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- MODIFICAR CONTENIDO: título que aparece en la pestaña del navegador -->
+<title>Leaftarq</title>
+
+<!-- MODIFICAR CONTENIDO: descripción que aparece en los motores de búsqueda -->
+<meta name="description" content="Alder Studio designs low-carbon buildings and landscapes that belong to their place.">
+
+<!-- FUENTES (Google Fonts): Newsreader (títulos) y Hanken Grotesk (textos).
+     Requieren internet; sin conexión el sitio usa fuentes de respaldo definidas
+     en styles.css (variables --serif y --sans). Para cambiar de fuente,
+     reemplaza el enlace y actualiza esas dos variables en styles.css. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- HOJA DE ESTILOS: conecta con styles.css (misma carpeta que este archivo) -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Enlace de accesibilidad: permite a usuarios de teclado saltar el menú -->
+<a class="skip" href="#main">Saltar al contenido</a>
+
+
+<!-- ==========================================================================
+     MENÚ DE NAVEGACIÓN (BARRA FIJA SUPERIOR)
+     ► CAMBIAR NOMBRE DE UN ENLACE: edita el texto entre <a ...> y </a>.
+     ► CAMBIAR DESTINO: edita href="#..." (debe coincidir con el id de una sección).
+     ► AGREGAR UN ELEMENTO AL MENÚ (ejemplo "Blog"):
+         1) Copia una línea <li>…</li> de abajo y pégala donde quieras que aparezca:
+              <li><a href="#blog">Blog</a></li>
+         2) Crea la sección destino con ese mismo id (ver "CÓMO AGREGAR UNA
+            SECCIÓN NUEVA" más abajo, antes de la sección de Contacto).
+         script.js detecta automáticamente los nuevos enlaces: el menú móvil y
+         el resaltado del enlace activo funcionarán sin tocar nada más.
+         (Si el enlace va a OTRA página o sitio, no se resaltará: es normal.)
+     ========================================================================== -->
+<header class="nav" id="top">
+  <div class="wrap">
+
+    <!-- LOGOTIPO: icono + nombre. Al hacer clic lleva a la portada (#hero).
+         ► Cambiar nombre: edita el texto "Alder Studio" (y el aria-label).
+         ► Usar tu propio logo: reemplaza el <svg>…</svg> por
+           <img src="assets/icons/logo.svg" width="26" height="26" alt=""> -->
+    <a href="#hero" class="logo" aria-label="Alder Studio, inicio">
+      <img src="assets/icons/logo.svg" width="26" height="26" alt="">
+      LeaftArq
+    </a>
+
+    <nav aria-label="Menú Principal">
+      <ul id="menu">
+        <li><a href="#about">Conócenos</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#sustainability">Sustentabilidad</a></li>
+        <li><a href="#contact">Contacto</a></li>
+
+        <!-- BOTÓN DE CAMBIO DE TEMA (CLARO/OSCURO). Lo controla script.js (sección 6).
+             No cambies el id="theme". -->
+        <li><button class="icon-btn" id="theme" type="button" aria-label="Cambiar tema de color">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button></li>
+      </ul>
+    </nav>
+
+    <!-- BOTÓN HAMBURGUESA (solo visible en móvil). Lo controla script.js (sección 3).
+         No cambies el id="toggle" ni aria-controls="menu". -->
+    <button class="icon-btn menu-toggle" id="toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</header>
+<!-- FIN DEL MENÚ DE NAVEGACIÓN -->
+
+
+<main id="main">
+
+<!-- ==========================================================================
+     SECCIÓN 1: PORTADA (HERO)          id="hero"
+     ► TEXTOS: edita el <h1> (título), el <p> (subtítulo) y los dos botones.
+     ► IMAGEN DE FONDO: actualmente es una ilustración vectorial (<svg>).
+       Para cambiar SUS COLORES edita los valores #xxxxxx dentro del <svg>.
+
+       PARA REEMPLAZARLA POR UNA FOTO (paso a paso):
+         1) Guarda tu foto en  assets/images/portada.jpg  (se recomienda
+            mínimo 1920px de ancho, formato .jpg o .webp).
+         2) Borra TODO el bloque <svg class="hero-art" …> … </svg> de abajo.
+         3) En su lugar pega esta línea:
+              <img class="hero-art" src="assets/images/portada.jpg" alt="Descripción de la foto">
+         4) Para elegir qué parte de la foto se ve, ajusta "object-position"
+            en styles.css, regla  img.hero-art  (sección 5).
+         La sombra oscura y los textos se mantienen igual.
+     ========================================================================== -->
+<section class="hero" id="hero" aria-labelledby="hero-title">
+
+  <!-- ===== INICIO DE LA ILUSTRACIÓN DE FONDO (casa en el bosque al amanecer) ===== -->
+  <img class="hero-art" src="portada.jpeg" alt="Descripción de la foto">
+  <!-- ===== FIN DE LA ILUSTRACIÓN DE FONDO ===== -->
+
+  <div class="wrap">
+    <!-- TÍTULO PRINCIPAL -->
+    <h1 id="hero-title">Construyendo un futuro sostenible.</h1>
+
+    <!-- SUBTÍTULO / DESCRIPCIÓN -->
+    <p>Somos una empresa que se dedica a desarrollar proyectos arquitectónicos sustentables e innovadores.</p>
+
+    <div class="actions">
+      <!-- BOTÓN PRINCIPAL (lleva a la sección con id="contact") -->
+      <a class="btn" href="#contact">Comienza un proyecto con nosotros</a>
+      <!-- BOTÓN SECUNDARIO (lleva a la sección con id="projects") -->
+      <a class="btn ghost" href="#projects">Ve nuestros proyectos</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN 1: PORTADA -->
+
+
+<!-- ==========================================================================
+     SECCIÓN 2: CONÓCENOS (ABOUT)          id="about"
+     ► Edita el título, el párrafo destacado (class="lead"), el párrafo normal
+       y los tres bloques de la derecha (Misión, Objetivos, Valores).
+     ► Para agregar otro bloque (ej. "Visión"), copia una línea
+       <div><h3>…</h3><p>…</p></div> dentro de <div class="pillars">.
+     ========================================================================== -->
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div>
+      <h2 id="about-title">Conócenos</h2>
+      <p class="lead lead-spaced">Somos una empresa joven e innovadora con mucho potencial fundada en 2018.</p>
+      <p>Todos nuestros proyectos son elaborados teniendo en mente el cuidado y aprovechamiento del medio ambiente.</p>
+    </div>
+    <div class="pillars">
+      <div><h3>Misión</h3><p>Integrar tecnologías y estrategias sustentables en cada uno de nuestros proyectos y aprovechar todos los recursos naturales.</p></div>
+      <div><h3>Objetivos</h3><p>Construir una empresa sustentable altamente comprometida con el medio ambiente.</p></div>
+      <div><h3>Valores</h3><p>- Humanidad - Humildad - Empatía - Hermandad - Ecología - Competitividad -</p></div>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN 2: CONÓCENOS -->
+
+
+<!-- ==========================================================================
+     SECCIÓN 3: SERVICIOS          id="services"
+     ► El título y la introducción se editan AQUÍ.
+     ► Las TARJETAS de servicios NO están aquí: se generan automáticamente
+       desde script.js, en la lista  const services = [ ... ]  (sección 1 del
+       archivo). Allí puedes editar, agregar, duplicar o eliminar servicios.
+     ========================================================================== -->
+<section id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="services-title">Servicios</h2>
+      <p class="lead">Un mismo equipo se encarga de todo, desde la primera conversación hasta la plantación del último árbol, de modo que las decisiones de diseño y los objetivos medioambientales permanezcan vinculados.</p>
+    </div>
+    <!-- Contenedor donde script.js inserta las tarjetas. NO cambies el id="service-cards" -->
+    <div class="cards" id="service-cards"></div>
+  </div>
+</section>
+<!-- FIN SECCIÓN 3: SERVICIOS -->
+
+
+<!-- ==========================================================================
+     SECCIÓN 4: PROYECTOS SELECCIONADOS          id="projects"
+     ► El título y la introducción se editan AQUÍ.
+     ► Las TARJETAS de proyectos se generan desde script.js, en la lista
+       const projects = [ ... ]  (sección 2 del archivo). Allí cambias nombres,
+       lugares, descripciones, ilustraciones y fotos.
+     ========================================================================== -->
+<section id="projects" aria-labelledby="projects-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="projects-title">Proyectos seleccionados</h2>
+      <p class="lead">Algunos edificios recientes, cada uno diseñado en torno a su clima y su paisaje.</p>
+    </div>
+    <!-- Contenedor donde script.js inserta los proyectos. NO cambies el id="project-grid" -->
+    <div class="projects" id="project-grid"></div>
+  </div>
+</section>
+<!-- FIN SECCIÓN 4: PROYECTOS -->
+
+
+<!-- ==========================================================================
+     SECCIÓN 5: SUSTENTABILIDAD          id="sustainability"
+     ► Edita el título, la introducción y los textos de las cuatro áreas.
+     ► Cada área es un bloque <div><h3>Título</h3><p>Texto</p></div>.
+       Puedes duplicar o borrar bloques: la rejilla se reacomoda sola.
+     ► Si quieres una cifra grande sobre el título (ej. "80%"), añade antes
+       del <h3>:  <strong>80%</strong>
+     ========================================================================== -->
+<section id="sustainability" aria-labelledby="sus-title">
+  <div class="wrap">
+    <div class="section-head section-head--flush">
+      <h2 id="sus-title">Sustentabilidad</h2>
+      <p class="lead">Buscamos lograr un equilibrio entre el medio ambiente, la sociedad y el aprovechamiento de los recursos naturales.</p>
+    </div>
+    <div class="metrics">
+      <div><h3>Energía renovable</h3><p>Energía solar en azoteas, bombas de calor geotérmicas y almacenamiento en baterías permiten que nuestros edificios produzcan tanta energía como consumen.</p></div>
+      <div><h3>Materiales ecológicos</h3><p>Favorecemos la madera, la tierra apisonada, el cáñamo y la piedra reciclada, controlando la huella de carbono incorporada en cada especificación.</p></div>
+      <div><h3>Eficiencia energética</h3><p>Envolventes herméticas y bien aisladas y diseño solar pasivo reducen la demanda de calefacción y refrigeración hasta en un 80%.</p></div>
+      <div><h3>Gestión de recursos</h3><p>La recolección de agua de lluvia, la reutilización de aguas grises y la planificación de residuos de construcción mantienen el agua y los materiales en circulación.</p></div>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN 5: SUSTENTABILIDAD -->
+
+
+<!-- ==========================================================================
+     CÓMO AGREGAR UNA SECCIÓN NUEVA (y conectarla al menú)
+     1) Copia esta plantilla y pégala entre dos secciones existentes:
+
+        <section id="blog" aria-labelledby="blog-title">
+          <div class="wrap">
+            <h2 id="blog-title">Blog</h2>
+            <p class="lead">Texto de introducción.</p>
+          </div>
+        </section>
+
+     2) Agrega en el menú (arriba):  <li><a href="#blog">Blog</a></li>
+        El texto después de # debe ser IGUAL al id de la sección ("blog").
+     ========================================================================== -->
+
+
+<!-- ==========================================================================
+     SECCIÓN 6: CONTACTO Y FORMULARIO          id="contact"
+     ► DATOS DE CONTACTO: edita Estudio (dirección), Correo, Teléfono y Horario.
+     ► CORREO: cambia el texto visible Y el href="mailto:…".
+       ¡IMPORTANTE! El formulario también envía a un correo, definido en
+       script.js con la constante CORREO_DE_CONTACTO. Cámbialo ahí también.
+     ► TELÉFONO: href="tel:+52…" (sin espacios ni guiones) y el texto visible.
+     ========================================================================== -->
+<section id="contact" class="contact-section" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div class="info">
+      <h2 id="contact-title">Hablemos de tu proyecto</h2>
+      <p class="lead lead-spaced">Cuéntanos qué te gustaría construir. Respondemos a todas las consultas en un plazo de dos días hábiles.</p>
+      <dl>
+        <dt>Oficina</dt><dd>Calle 24 sur, Plaza del Sol, Puebla, México</dd>
+        <dt>Correo electrónico</dt><dd><a href="mailto:LeaftArq@gmail.com">LeaftArq@gmail.com</a></dd>
+        <dt>Teléfono</dt><dd><a href="tel:+52 222 161 5111">+52 222 161 5111</a></dd>
+        <dt>Horario</dt><dd>Lunes a Viernes, 9:00 a 18:00</dd>
+      </dl>
+
+      <!-- REDES SOCIALES
+           ► Cambia cada href="#contact" por la dirección real de tu perfil, por ejemplo:
+               href="https://www.instagram.com/tu_usuario"
+             y añade  target="_blank" rel="noopener"  para abrirlo en otra pestaña.
+           ► Para agregar otra red, copia un <li>…</li> completo y cambia el
+             aria-label y el icono <svg>. -->
+      <ul class="social" aria-label="Redes sociales">
+        <li><a href="https://www.instagram.com/leaftarq" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a></li>
+        <li><a href="https://www.facebook.com/share/1CQGjznpJx/?mibextid=wwXIfr" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg></a></li>
+        <li><a href="https://www.x.com/LeaftArq" aria-label="X"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M4 4l11.733 16h4.267l-11.733 -16zM4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a></li>
+  
+      </ul>
+    </div>
+
+    <!-- FORMULARIO DE CONTACTO. La validación y el envío los maneja script.js
+         (sección 7). NO cambies los id/name de los campos (name, email, type,
+         message) ni los id de los mensajes de error (name-err, email-err,
+         message-err) o la validación dejará de funcionar.
+         ► Los textos de las etiquetas y las opciones del <select> SÍ se pueden editar. -->
+    <form id="contact-form" novalidate>
+      <div class="field"><label for="name">Nombre</label><input id="name" name="name" autocomplete="name" required><p class="err" id="name-err" aria-live="polite"></p></div>
+      <div class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" required><p class="err" id="email-err" aria-live="polite"></p></div>
+      <div class="field"><label for="type">Tipo de proyecto</label>
+        <!-- Para agregar un tipo de proyecto: añade <option>Nombre</option> -->
+        <select id="type" name="type"><option>Nueva casa</option><option>Edificio comercial o público</option><option>Renovación</option><option>Paisajismo</option><option>Consultoría</option></select></div>
+      <div class="field"><label for="message">Mensaje</label><textarea id="message" name="message" required></textarea><p class="err" id="message-err" aria-live="polite"></p></div>
+      <div><button class="btn" type="submit">Enviar mensaje</button></div>
+      <p class="status" id="status" role="status"></p>
+    </form>
+  </div>
+</section>
+<!-- FIN SECCIÓN 6: CONTACTO -->
+
+
+<!-- ==========================================================================
+     BANNER FINAL (LLAMADA A LA ACCIÓN)
+     ► Edita el título y el texto del botón. El botón lleva al formulario
+       (href="#name" = primer campo) y script.js le da el foco.
+       No cambies el id="cta-form".
+     ========================================================================== -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2>¿Listo para planificar un edificio que trabaje en sintonía con la naturaleza?</h2>
+    <a class="btn" href="#name" id="cta-form">Libro gratis de planificación</a>
+  </div>
+</div>
+</main>
+
+
+<!-- ==========================================================================
+     PIE DE PÁGINA
+     ► Cambia el nombre de la empresa. El año (id="year") se actualiza solo
+       desde script.js; "2026" es solo el valor de respaldo.
+     ========================================================================== -->
+<footer>
+  <div class="wrap"><span>© <span id="year">2026</span> LeaftArq. Todos los derechos reservados.</span><a href="#top">Volver arriba</a></div>
+</footer>
+
+
+<!-- SCRIPT PRINCIPAL: conecta con script.js. Debe ir al FINAL del <body>
+     para que la página ya exista cuando el script la busque. -->
+<script src="script.js"></script>
+</body>
+</html>
